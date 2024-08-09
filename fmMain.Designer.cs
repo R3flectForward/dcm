@@ -43,6 +43,9 @@
             this.chColor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chRGB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chHEX = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.copyValueContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyHexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyRGBValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ilColors = new System.Windows.Forms.ImageList(this.components);
             this.lbInfo = new System.Windows.Forms.Label();
             this.rbRGB = new System.Windows.Forms.RadioButton();
@@ -61,8 +64,12 @@
             this.tbrUpdateSpeed = new System.Windows.Forms.TrackBar();
             this.lblSlow = new System.Windows.Forms.Label();
             this.lblFast = new System.Windows.Forms.Label();
+            this.copyRValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyGValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyBValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
+            this.copyValueContextMenuStrip.SuspendLayout();
             this.copyValueMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbrUpdateSpeed)).BeginInit();
             this.SuspendLayout();
@@ -150,6 +157,7 @@
             this.chColor,
             this.chRGB,
             this.chHEX});
+            this.lvColors.ContextMenuStrip = this.copyValueContextMenuStrip;
             this.lvColors.FullRowSelect = true;
             this.lvColors.HideSelection = false;
             this.lvColors.LargeImageList = this.ilColors;
@@ -175,6 +183,31 @@
             // 
             this.chHEX.Text = "HEX";
             this.chHEX.Width = 80;
+            // 
+            // copyValueContextMenuStrip
+            // 
+            this.copyValueContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyHexToolStripMenuItem,
+            this.copyRGBValueToolStripMenuItem,
+            this.copyRValueToolStripMenuItem,
+            this.copyGValueToolStripMenuItem,
+            this.copyBValueToolStripMenuItem});
+            this.copyValueContextMenuStrip.Name = "contextMenuStrip1";
+            this.copyValueContextMenuStrip.Size = new System.Drawing.Size(159, 114);
+            // 
+            // copyHexToolStripMenuItem
+            // 
+            this.copyHexToolStripMenuItem.Name = "copyHexToolStripMenuItem";
+            this.copyHexToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.copyHexToolStripMenuItem.Text = "Copy Hex Value";
+            this.copyHexToolStripMenuItem.Click += new System.EventHandler(this.miCopyHEX_Click);
+            // 
+            // copyRGBValueToolStripMenuItem
+            // 
+            this.copyRGBValueToolStripMenuItem.Name = "copyRGBValueToolStripMenuItem";
+            this.copyRGBValueToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.copyRGBValueToolStripMenuItem.Text = "Copy RGB Value";
+            this.copyRGBValueToolStripMenuItem.Click += new System.EventHandler(this.miCopyRGB_Click);
             // 
             // ilColors
             // 
@@ -341,6 +374,27 @@
             this.lblFast.TabIndex = 22;
             this.lblFast.Text = "Fast";
             // 
+            // copyRValueToolStripMenuItem
+            // 
+            this.copyRValueToolStripMenuItem.Name = "copyRValueToolStripMenuItem";
+            this.copyRValueToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.copyRValueToolStripMenuItem.Text = "Copy R Value";
+            this.copyRValueToolStripMenuItem.Click += new System.EventHandler(this.miCopyR_Click);
+            // 
+            // copyGValueToolStripMenuItem
+            // 
+            this.copyGValueToolStripMenuItem.Name = "copyGValueToolStripMenuItem";
+            this.copyGValueToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.copyGValueToolStripMenuItem.Text = "Copy G Value";
+            this.copyGValueToolStripMenuItem.Click += new System.EventHandler(this.miCopyG_Click);
+            // 
+            // copyBValueToolStripMenuItem
+            // 
+            this.copyBValueToolStripMenuItem.Name = "copyBValueToolStripMenuItem";
+            this.copyBValueToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.copyBValueToolStripMenuItem.Text = "Copy B Value";
+            this.copyBValueToolStripMenuItem.Click += new System.EventHandler(this.miCopyB_Click);
+            // 
             // fmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,6 +430,7 @@
             this.Load += new System.EventHandler(this.fmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbArea)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).EndInit();
+            this.copyValueContextMenuStrip.ResumeLayout(false);
             this.copyValueMenuStrip.ResumeLayout(false);
             this.copyValueMenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbrUpdateSpeed)).EndInit();
@@ -417,5 +472,11 @@
         private System.Windows.Forms.TrackBar tbrUpdateSpeed;
         private System.Windows.Forms.Label lblSlow;
         private System.Windows.Forms.Label lblFast;
+        private System.Windows.Forms.ContextMenuStrip copyValueContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem copyHexToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyRGBValueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyRValueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyGValueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyBValueToolStripMenuItem;
     }
 }
