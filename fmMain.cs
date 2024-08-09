@@ -37,7 +37,12 @@ namespace dcm {
         /// </summary>
         private void fmMain_Load(object sender, EventArgs e) {
             tbrUpdateSpeed.Value = Properties.Settings.Default.UpdateSpeedValue;
+            rbRGB.Checked = Properties.Settings.Default.SaveColorRGBChecked;
+            rbHEX.Checked = Properties.Settings.Default.SaveColorHEXChecked;
+            cbRGB.Checked = Properties.Settings.Default.CopyColorListRGBChecked;
+            cbHEX.Checked = Properties.Settings.Default.CopyColorListHEXChecked;
             trRefresh.Interval = 100 - tbrUpdateSpeed.Value;
+
             KeyDown += fmMain_KeyDown;
             lvColors.KeyDown += fmMain_KeyDown;
             tbRed.KeyDown += fmMain_KeyDown;
@@ -288,6 +293,28 @@ namespace dcm {
         {
             Properties.Settings.Default.UpdateSpeedValue = tbrUpdateSpeed.Value;
             trRefresh.Interval = 100 - Properties.Settings.Default.UpdateSpeedValue;
+        }
+        
+        private void rbRGB_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.SaveColorRGBChecked = rbRGB.Checked;
+            Properties.Settings.Default.SaveColorHEXChecked = !rbRGB.Checked;
+        }
+
+        private void rbHEX_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.SaveColorRGBChecked = !rbHEX.Checked;
+            Properties.Settings.Default.SaveColorHEXChecked = rbHEX.Checked;
+        }
+
+        private void cbRGB_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.CopyColorListRGBChecked = cbRGB.Checked;
+        }
+
+        private void cbHEX_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.CopyColorListHEXChecked = cbHEX.Checked;
         }
     }
 }

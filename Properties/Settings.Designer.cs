@@ -34,5 +34,53 @@ namespace dcm.Properties {
                 this["UpdateSpeedValue"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SaveColorRGBChecked {
+            get {
+                return ((bool)(this["SaveColorRGBChecked"]));
+            }
+            set {
+                this["SaveColorRGBChecked"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SaveColorHEXChecked {
+            get {
+                return ((bool)(this["SaveColorHEXChecked"]));
+            }
+            set {
+                this["SaveColorHEXChecked"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool CopyColorListRGBChecked {
+            get {
+                return ((bool)(this["CopyColorListRGBChecked"]));
+            }
+            set {
+                this["CopyColorListRGBChecked"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool CopyColorListHEXChecked {
+            get {
+                return ((bool)(this["CopyColorListHEXChecked"]));
+            }
+            set {
+                this["CopyColorListHEXChecked"] = value;
+            }
+        }
     }
 }

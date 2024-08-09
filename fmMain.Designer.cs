@@ -46,6 +46,9 @@
             this.copyValueContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyHexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyRGBValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyRValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyGValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyBValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ilColors = new System.Windows.Forms.ImageList(this.components);
             this.lbInfo = new System.Windows.Forms.Label();
             this.rbRGB = new System.Windows.Forms.RadioButton();
@@ -64,9 +67,6 @@
             this.tbrUpdateSpeed = new System.Windows.Forms.TrackBar();
             this.lblSlow = new System.Windows.Forms.Label();
             this.lblFast = new System.Windows.Forms.Label();
-            this.copyRValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyGValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyBValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
             this.copyValueContextMenuStrip.SuspendLayout();
@@ -209,6 +209,27 @@
             this.copyRGBValueToolStripMenuItem.Text = "Copy RGB Value";
             this.copyRGBValueToolStripMenuItem.Click += new System.EventHandler(this.miCopyRGB_Click);
             // 
+            // copyRValueToolStripMenuItem
+            // 
+            this.copyRValueToolStripMenuItem.Name = "copyRValueToolStripMenuItem";
+            this.copyRValueToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.copyRValueToolStripMenuItem.Text = "Copy R Value";
+            this.copyRValueToolStripMenuItem.Click += new System.EventHandler(this.miCopyR_Click);
+            // 
+            // copyGValueToolStripMenuItem
+            // 
+            this.copyGValueToolStripMenuItem.Name = "copyGValueToolStripMenuItem";
+            this.copyGValueToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.copyGValueToolStripMenuItem.Text = "Copy G Value";
+            this.copyGValueToolStripMenuItem.Click += new System.EventHandler(this.miCopyG_Click);
+            // 
+            // copyBValueToolStripMenuItem
+            // 
+            this.copyBValueToolStripMenuItem.Name = "copyBValueToolStripMenuItem";
+            this.copyBValueToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.copyBValueToolStripMenuItem.Text = "Copy B Value";
+            this.copyBValueToolStripMenuItem.Click += new System.EventHandler(this.miCopyB_Click);
+            // 
             // ilColors
             // 
             this.ilColors.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
@@ -232,6 +253,7 @@
             this.rbRGB.TabIndex = 13;
             this.rbRGB.Text = "RGB";
             this.rbRGB.UseVisualStyleBackColor = true;
+            this.rbRGB.CheckedChanged += new System.EventHandler(this.rbRGB_CheckedChanged);
             // 
             // rbHEX
             // 
@@ -244,6 +266,7 @@
             this.rbHEX.TabStop = true;
             this.rbHEX.Text = "HEX";
             this.rbHEX.UseVisualStyleBackColor = true;
+            this.rbHEX.CheckedChanged += new System.EventHandler(this.rbHEX_CheckedChanged);
             // 
             // label4
             // 
@@ -264,6 +287,7 @@
             this.cbRGB.TabIndex = 16;
             this.cbRGB.Text = "RGB";
             this.cbRGB.UseVisualStyleBackColor = true;
+            this.cbRGB.CheckedChanged += new System.EventHandler(this.cbRGB_CheckedChanged);
             // 
             // cbHEX
             // 
@@ -276,6 +300,7 @@
             this.cbHEX.TabIndex = 17;
             this.cbHEX.Text = "HEX";
             this.cbHEX.UseVisualStyleBackColor = true;
+            this.cbHEX.CheckedChanged += new System.EventHandler(this.cbHEX_CheckedChanged);
             // 
             // copyValueMenuStrip
             // 
@@ -302,36 +327,36 @@
             // copyRGBToolStripMenuItem
             // 
             this.copyRGBToolStripMenuItem.Name = "copyRGBToolStripMenuItem";
-            this.copyRGBToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.copyRGBToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.copyRGBToolStripMenuItem.Text = "Hex Value";
             this.copyRGBToolStripMenuItem.Click += new System.EventHandler(this.miCopyHEX_Click);
             // 
             // copyRGBToolStripMenuItem1
             // 
             this.copyRGBToolStripMenuItem1.Name = "copyRGBToolStripMenuItem1";
-            this.copyRGBToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
+            this.copyRGBToolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
             this.copyRGBToolStripMenuItem1.Text = "RGB Value";
             this.copyRGBToolStripMenuItem1.Click += new System.EventHandler(this.miCopyRGB_Click);
             // 
             // copyRedValueToolStripMenuItem
             // 
             this.copyRedValueToolStripMenuItem.Name = "copyRedValueToolStripMenuItem";
-            this.copyRedValueToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.copyRedValueToolStripMenuItem.Text = "Red Value";
+            this.copyRedValueToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.copyRedValueToolStripMenuItem.Text = "R Value";
             this.copyRedValueToolStripMenuItem.Click += new System.EventHandler(this.miCopyR_Click);
             // 
             // copyGreenValueToolStripMenuItem
             // 
             this.copyGreenValueToolStripMenuItem.Name = "copyGreenValueToolStripMenuItem";
-            this.copyGreenValueToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.copyGreenValueToolStripMenuItem.Text = "Green Value";
+            this.copyGreenValueToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.copyGreenValueToolStripMenuItem.Text = "G Value";
             this.copyGreenValueToolStripMenuItem.Click += new System.EventHandler(this.miCopyG_Click);
             // 
             // copyBlueValueToolStripMenuItem
             // 
             this.copyBlueValueToolStripMenuItem.Name = "copyBlueValueToolStripMenuItem";
-            this.copyBlueValueToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.copyBlueValueToolStripMenuItem.Text = "Blue Value";
+            this.copyBlueValueToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.copyBlueValueToolStripMenuItem.Text = "B Value";
             this.copyBlueValueToolStripMenuItem.Click += new System.EventHandler(this.miCopyB_Click);
             // 
             // lblUpdateSpeed
@@ -373,27 +398,6 @@
             this.lblFast.Size = new System.Drawing.Size(27, 13);
             this.lblFast.TabIndex = 22;
             this.lblFast.Text = "Fast";
-            // 
-            // copyRValueToolStripMenuItem
-            // 
-            this.copyRValueToolStripMenuItem.Name = "copyRValueToolStripMenuItem";
-            this.copyRValueToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.copyRValueToolStripMenuItem.Text = "Copy R Value";
-            this.copyRValueToolStripMenuItem.Click += new System.EventHandler(this.miCopyR_Click);
-            // 
-            // copyGValueToolStripMenuItem
-            // 
-            this.copyGValueToolStripMenuItem.Name = "copyGValueToolStripMenuItem";
-            this.copyGValueToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.copyGValueToolStripMenuItem.Text = "Copy G Value";
-            this.copyGValueToolStripMenuItem.Click += new System.EventHandler(this.miCopyG_Click);
-            // 
-            // copyBValueToolStripMenuItem
-            // 
-            this.copyBValueToolStripMenuItem.Name = "copyBValueToolStripMenuItem";
-            this.copyBValueToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.copyBValueToolStripMenuItem.Text = "Copy B Value";
-            this.copyBValueToolStripMenuItem.Click += new System.EventHandler(this.miCopyB_Click);
             // 
             // fmMain
             // 
