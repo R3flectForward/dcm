@@ -43,13 +43,6 @@
             this.chColor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chRGB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chHEX = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cmColorsPopup = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.miCopyHEX = new System.Windows.Forms.ToolStripMenuItem();
-            this.miCopyRGB = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.miCopyR = new System.Windows.Forms.ToolStripMenuItem();
-            this.miCopyG = new System.Windows.Forms.ToolStripMenuItem();
-            this.miCopyB = new System.Windows.Forms.ToolStripMenuItem();
             this.ilColors = new System.Windows.Forms.ImageList(this.components);
             this.lbInfo = new System.Windows.Forms.Label();
             this.rbRGB = new System.Windows.Forms.RadioButton();
@@ -57,15 +50,27 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cbRGB = new System.Windows.Forms.CheckBox();
             this.cbHEX = new System.Windows.Forms.CheckBox();
+            this.copyValueMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyRGBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyRGBToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyRedValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyGreenValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyBlueValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblUpdateSpeed = new System.Windows.Forms.Label();
+            this.tbrUpdateSpeed = new System.Windows.Forms.TrackBar();
+            this.lblSlow = new System.Windows.Forms.Label();
+            this.lblFast = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
-            this.cmColorsPopup.SuspendLayout();
+            this.copyValueMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbrUpdateSpeed)).BeginInit();
             this.SuspendLayout();
             // 
             // pbArea
             // 
             this.pbArea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbArea.Location = new System.Drawing.Point(12, 12);
+            this.pbArea.Location = new System.Drawing.Point(12, 29);
             this.pbArea.Name = "pbArea";
             this.pbArea.Size = new System.Drawing.Size(132, 132);
             this.pbArea.TabIndex = 0;
@@ -74,7 +79,7 @@
             // pbColor
             // 
             this.pbColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbColor.Location = new System.Drawing.Point(12, 150);
+            this.pbColor.Location = new System.Drawing.Point(12, 167);
             this.pbColor.Name = "pbColor";
             this.pbColor.Size = new System.Drawing.Size(46, 62);
             this.pbColor.TabIndex = 1;
@@ -83,7 +88,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(64, 153);
+            this.label1.Location = new System.Drawing.Point(64, 170);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(15, 13);
             this.label1.TabIndex = 2;
@@ -92,7 +97,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(64, 174);
+            this.label2.Location = new System.Drawing.Point(64, 191);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(15, 13);
             this.label2.TabIndex = 3;
@@ -101,7 +106,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(64, 195);
+            this.label3.Location = new System.Drawing.Point(64, 212);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(14, 13);
             this.label3.TabIndex = 4;
@@ -110,11 +115,12 @@
             // trRefresh
             // 
             this.trRefresh.Enabled = true;
+            this.trRefresh.Interval = 50;
             this.trRefresh.Tick += new System.EventHandler(this.trRefresh_Tick);
             // 
             // tbRed
             // 
-            this.tbRed.Location = new System.Drawing.Point(85, 150);
+            this.tbRed.Location = new System.Drawing.Point(85, 167);
             this.tbRed.Name = "tbRed";
             this.tbRed.ReadOnly = true;
             this.tbRed.Size = new System.Drawing.Size(59, 20);
@@ -122,7 +128,7 @@
             // 
             // tbGreen
             // 
-            this.tbGreen.Location = new System.Drawing.Point(85, 171);
+            this.tbGreen.Location = new System.Drawing.Point(85, 188);
             this.tbGreen.Name = "tbGreen";
             this.tbGreen.ReadOnly = true;
             this.tbGreen.Size = new System.Drawing.Size(59, 20);
@@ -130,7 +136,7 @@
             // 
             // tbBlue
             // 
-            this.tbBlue.Location = new System.Drawing.Point(85, 192);
+            this.tbBlue.Location = new System.Drawing.Point(85, 209);
             this.tbBlue.Name = "tbBlue";
             this.tbBlue.ReadOnly = true;
             this.tbBlue.Size = new System.Drawing.Size(59, 20);
@@ -144,10 +150,10 @@
             this.chColor,
             this.chRGB,
             this.chHEX});
-            this.lvColors.ContextMenuStrip = this.cmColorsPopup;
             this.lvColors.FullRowSelect = true;
+            this.lvColors.HideSelection = false;
             this.lvColors.LargeImageList = this.ilColors;
-            this.lvColors.Location = new System.Drawing.Point(150, 12);
+            this.lvColors.Location = new System.Drawing.Point(150, 29);
             this.lvColors.Name = "lvColors";
             this.lvColors.Size = new System.Drawing.Size(254, 200);
             this.lvColors.SmallImageList = this.ilColors;
@@ -170,58 +176,6 @@
             this.chHEX.Text = "HEX";
             this.chHEX.Width = 80;
             // 
-            // cmColorsPopup
-            // 
-            this.cmColorsPopup.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miCopyHEX,
-            this.miCopyRGB,
-            this.toolStripSeparator1,
-            this.miCopyR,
-            this.miCopyG,
-            this.miCopyB});
-            this.cmColorsPopup.Name = "cmColorsPopup";
-            this.cmColorsPopup.Size = new System.Drawing.Size(137, 120);
-            // 
-            // miCopyHEX
-            // 
-            this.miCopyHEX.Name = "miCopyHEX";
-            this.miCopyHEX.Size = new System.Drawing.Size(136, 22);
-            this.miCopyHEX.Text = "Copy HEX";
-            this.miCopyHEX.Click += new System.EventHandler(this.miCopyHEX_Click);
-            // 
-            // miCopyRGB
-            // 
-            this.miCopyRGB.Name = "miCopyRGB";
-            this.miCopyRGB.Size = new System.Drawing.Size(136, 22);
-            this.miCopyRGB.Text = "Copy RGB";
-            this.miCopyRGB.Click += new System.EventHandler(this.miCopyRGB_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(133, 6);
-            // 
-            // miCopyR
-            // 
-            this.miCopyR.Name = "miCopyR";
-            this.miCopyR.Size = new System.Drawing.Size(136, 22);
-            this.miCopyR.Text = "Copy Red";
-            this.miCopyR.Click += new System.EventHandler(this.miCopyR_Click);
-            // 
-            // miCopyG
-            // 
-            this.miCopyG.Name = "miCopyG";
-            this.miCopyG.Size = new System.Drawing.Size(136, 22);
-            this.miCopyG.Text = "Copy Green";
-            this.miCopyG.Click += new System.EventHandler(this.miCopyG_Click);
-            // 
-            // miCopyB
-            // 
-            this.miCopyB.Name = "miCopyB";
-            this.miCopyB.Size = new System.Drawing.Size(136, 22);
-            this.miCopyB.Text = "Copy Blue";
-            this.miCopyB.Click += new System.EventHandler(this.miCopyB_Click);
-            // 
             // ilColors
             // 
             this.ilColors.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
@@ -230,7 +184,7 @@
             // 
             // lbInfo
             // 
-            this.lbInfo.Location = new System.Drawing.Point(147, 215);
+            this.lbInfo.Location = new System.Drawing.Point(147, 236);
             this.lbInfo.Name = "lbInfo";
             this.lbInfo.Size = new System.Drawing.Size(257, 31);
             this.lbInfo.TabIndex = 12;
@@ -239,7 +193,7 @@
             // rbRGB
             // 
             this.rbRGB.AutoSize = true;
-            this.rbRGB.Location = new System.Drawing.Point(236, 227);
+            this.rbRGB.Location = new System.Drawing.Point(236, 248);
             this.rbRGB.Name = "rbRGB";
             this.rbRGB.Size = new System.Drawing.Size(48, 17);
             this.rbRGB.TabIndex = 13;
@@ -250,7 +204,7 @@
             // 
             this.rbHEX.AutoSize = true;
             this.rbHEX.Checked = true;
-            this.rbHEX.Location = new System.Drawing.Point(290, 227);
+            this.rbHEX.Location = new System.Drawing.Point(290, 248);
             this.rbHEX.Name = "rbHEX";
             this.rbHEX.Size = new System.Drawing.Size(47, 17);
             this.rbHEX.TabIndex = 14;
@@ -260,7 +214,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(147, 251);
+            this.label4.Location = new System.Drawing.Point(147, 269);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(257, 31);
             this.label4.TabIndex = 15;
@@ -271,7 +225,7 @@
             this.cbRGB.AutoSize = true;
             this.cbRGB.Checked = true;
             this.cbRGB.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbRGB.Location = new System.Drawing.Point(236, 264);
+            this.cbRGB.Location = new System.Drawing.Point(236, 284);
             this.cbRGB.Name = "cbRGB";
             this.cbRGB.Size = new System.Drawing.Size(49, 17);
             this.cbRGB.TabIndex = 16;
@@ -283,18 +237,120 @@
             this.cbHEX.AutoSize = true;
             this.cbHEX.Checked = true;
             this.cbHEX.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbHEX.Location = new System.Drawing.Point(290, 264);
+            this.cbHEX.Location = new System.Drawing.Point(290, 284);
             this.cbHEX.Name = "cbHEX";
             this.cbHEX.Size = new System.Drawing.Size(48, 17);
             this.cbHEX.TabIndex = 17;
             this.cbHEX.Text = "HEX";
             this.cbHEX.UseVisualStyleBackColor = true;
             // 
+            // copyValueMenuStrip
+            // 
+            this.copyValueMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToolStripMenuItem});
+            this.copyValueMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.copyValueMenuStrip.Name = "copyValueMenuStrip";
+            this.copyValueMenuStrip.Size = new System.Drawing.Size(416, 24);
+            this.copyValueMenuStrip.TabIndex = 18;
+            this.copyValueMenuStrip.Text = "menuStrip1";
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyRGBToolStripMenuItem,
+            this.copyRGBToolStripMenuItem1,
+            this.copyRedValueToolStripMenuItem,
+            this.copyGreenValueToolStripMenuItem,
+            this.copyBlueValueToolStripMenuItem});
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.copyToolStripMenuItem.Text = "Copy";
+            // 
+            // copyRGBToolStripMenuItem
+            // 
+            this.copyRGBToolStripMenuItem.Name = "copyRGBToolStripMenuItem";
+            this.copyRGBToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.copyRGBToolStripMenuItem.Text = "Hex Value";
+            this.copyRGBToolStripMenuItem.Click += new System.EventHandler(this.miCopyHEX_Click);
+            // 
+            // copyRGBToolStripMenuItem1
+            // 
+            this.copyRGBToolStripMenuItem1.Name = "copyRGBToolStripMenuItem1";
+            this.copyRGBToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
+            this.copyRGBToolStripMenuItem1.Text = "RGB Value";
+            this.copyRGBToolStripMenuItem1.Click += new System.EventHandler(this.miCopyRGB_Click);
+            // 
+            // copyRedValueToolStripMenuItem
+            // 
+            this.copyRedValueToolStripMenuItem.Name = "copyRedValueToolStripMenuItem";
+            this.copyRedValueToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.copyRedValueToolStripMenuItem.Text = "Red Value";
+            this.copyRedValueToolStripMenuItem.Click += new System.EventHandler(this.miCopyR_Click);
+            // 
+            // copyGreenValueToolStripMenuItem
+            // 
+            this.copyGreenValueToolStripMenuItem.Name = "copyGreenValueToolStripMenuItem";
+            this.copyGreenValueToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.copyGreenValueToolStripMenuItem.Text = "Green Value";
+            this.copyGreenValueToolStripMenuItem.Click += new System.EventHandler(this.miCopyG_Click);
+            // 
+            // copyBlueValueToolStripMenuItem
+            // 
+            this.copyBlueValueToolStripMenuItem.Name = "copyBlueValueToolStripMenuItem";
+            this.copyBlueValueToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.copyBlueValueToolStripMenuItem.Text = "Blue Value";
+            this.copyBlueValueToolStripMenuItem.Click += new System.EventHandler(this.miCopyB_Click);
+            // 
+            // lblUpdateSpeed
+            // 
+            this.lblUpdateSpeed.AutoSize = true;
+            this.lblUpdateSpeed.Location = new System.Drawing.Point(38, 237);
+            this.lblUpdateSpeed.Name = "lblUpdateSpeed";
+            this.lblUpdateSpeed.Size = new System.Drawing.Size(76, 13);
+            this.lblUpdateSpeed.TabIndex = 19;
+            this.lblUpdateSpeed.Text = "Update Speed";
+            // 
+            // tbrUpdateSpeed
+            // 
+            this.tbrUpdateSpeed.LargeChange = 10;
+            this.tbrUpdateSpeed.Location = new System.Drawing.Point(23, 255);
+            this.tbrUpdateSpeed.Maximum = 99;
+            this.tbrUpdateSpeed.Minimum = 1;
+            this.tbrUpdateSpeed.Name = "tbrUpdateSpeed";
+            this.tbrUpdateSpeed.Size = new System.Drawing.Size(104, 45);
+            this.tbrUpdateSpeed.TabIndex = 20;
+            this.tbrUpdateSpeed.TickFrequency = 10;
+            this.tbrUpdateSpeed.Value = 1;
+            this.tbrUpdateSpeed.Scroll += new System.EventHandler(this.tbrUpdateSpeed_Scroll);
+            // 
+            // lblSlow
+            // 
+            this.lblSlow.AutoSize = true;
+            this.lblSlow.Location = new System.Drawing.Point(22, 284);
+            this.lblSlow.Name = "lblSlow";
+            this.lblSlow.Size = new System.Drawing.Size(30, 13);
+            this.lblSlow.TabIndex = 21;
+            this.lblSlow.Text = "Slow";
+            // 
+            // lblFast
+            // 
+            this.lblFast.AutoSize = true;
+            this.lblFast.Location = new System.Drawing.Point(100, 284);
+            this.lblFast.Name = "lblFast";
+            this.lblFast.Size = new System.Drawing.Size(27, 13);
+            this.lblFast.TabIndex = 22;
+            this.lblFast.Text = "Fast";
+            // 
             // fmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 292);
+            this.ClientSize = new System.Drawing.Size(416, 305);
+            this.Controls.Add(this.lblFast);
+            this.Controls.Add(this.lblSlow);
+            this.Controls.Add(this.tbrUpdateSpeed);
+            this.Controls.Add(this.lblUpdateSpeed);
+            this.Controls.Add(this.copyValueMenuStrip);
             this.Controls.Add(this.cbHEX);
             this.Controls.Add(this.cbRGB);
             this.Controls.Add(this.label4);
@@ -312,13 +368,17 @@
             this.Controls.Add(this.pbArea);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.copyValueMenuStrip;
             this.MaximizeBox = false;
             this.Name = "fmMain";
             this.Text = "Digital Color Meter";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fmMain_FormClosing);
             this.Load += new System.EventHandler(this.fmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbArea)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).EndInit();
-            this.cmColorsPopup.ResumeLayout(false);
+            this.copyValueMenuStrip.ResumeLayout(false);
+            this.copyValueMenuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbrUpdateSpeed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,19 +399,23 @@
 		private System.Windows.Forms.ColumnHeader chColor;
         private System.Windows.Forms.ColumnHeader chRGB;
         private System.Windows.Forms.Label lbInfo;
-        private System.Windows.Forms.ContextMenuStrip cmColorsPopup;
-        private System.Windows.Forms.ToolStripMenuItem miCopyRGB;
-        private System.Windows.Forms.ToolStripMenuItem miCopyR;
-        private System.Windows.Forms.ToolStripMenuItem miCopyG;
-        private System.Windows.Forms.ToolStripMenuItem miCopyB;
         private System.Windows.Forms.ImageList ilColors;
 		private System.Windows.Forms.RadioButton rbRGB;
 		private System.Windows.Forms.RadioButton rbHEX;
 		private System.Windows.Forms.ColumnHeader chHEX;
-		private System.Windows.Forms.ToolStripMenuItem miCopyHEX;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox cbRGB;
         private System.Windows.Forms.CheckBox cbHEX;
+        private System.Windows.Forms.MenuStrip copyValueMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyRGBToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyRGBToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem copyRedValueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyBlueValueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyGreenValueToolStripMenuItem;
+        private System.Windows.Forms.Label lblUpdateSpeed;
+        private System.Windows.Forms.TrackBar tbrUpdateSpeed;
+        private System.Windows.Forms.Label lblSlow;
+        private System.Windows.Forms.Label lblFast;
     }
 }
